@@ -9,11 +9,13 @@ import java.math.BigDecimal;
 public class FinanceApplication {
 
     public static void main(String[] args) {
-        BankAccount account1 = new BankAccount(123, "Pam", new BigDecimal("12500" ));
-        Valuable account2 = new BankAccount(456, "Gary", new BigDecimal("1500" ));
+        //* Creating two new bank accounts
+        BankAccount account1 = new BankAccount(123, "Pam", new BigDecimal("12500"));
+        Valuable account2 = new BankAccount(456, "Gary", new BigDecimal("1500"));
 
+        //* Attempting to deposit into both
         account1.deposit(100);
-        account2.deposit(100);
+//        account2.deposit(100);
 
         //* Did the deposit work for both accounts? Why or why not?
         //? The deposit does not work for the BankAccount instance with the Valuable type assigned to it.

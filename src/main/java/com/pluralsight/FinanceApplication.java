@@ -1,17 +1,18 @@
 
 package com.pluralsight;
 
-import com.pluralsight.finance.BankAccount;
-import com.pluralsight.finance.Valuable;
+import com.pluralsight.finance.*;
 
+import javax.swing.text.NumberFormatter;
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class FinanceApplication {
 
     public static void main(String[] args) {
         //* Creating two new bank accounts
         BankAccount account1 = new BankAccount(123, "Pam", new BigDecimal("12500"));
-        Valuable account2 = new BankAccount(456, "Gary", new BigDecimal("1500"));
+        Valuable accountTwo = new BankAccount(456, "Gary", new BigDecimal("1500"));
 
         //* Attempting to deposit into both
         account1.deposit(100);
@@ -29,6 +30,23 @@ public class FinanceApplication {
         //* Why?
         //? See my above answer. Account2 is a different variable type and has a different Interface attached to it that
         //? allows different methods.
+
+        BankAccount account2 = new BankAccount(789, "Pam", new BigDecimal("15000"));
+        CreditCard ccAccount1 = new CreditCard(1234, "Pam", new BigDecimal("2000"));
+        Gold goldBar = new Gold("Gold Bar", 1421158.00);
+        House house = new House("2 story, 3 bed, 2 bath", 300000.00);
+        Jewelry necklace = new Jewelry("Necklace", 1000.00);
+        Portfolio pamPortfolio = new Portfolio("Pam's Portfolio", "Pam");
+        pamPortfolio.add(account1);
+        pamPortfolio.add(account2);
+        pamPortfolio.add(ccAccount1);
+        pamPortfolio.add(goldBar);
+        pamPortfolio.add(house);
+        pamPortfolio.add(necklace);
+        System.out.println("Most valuable asset in Pam's Portfolio: " + pamPortfolio.getMostValuable());
+        System.out.println("Least valuable asset in Pam's Portfolio: " + pamPortfolio.getLeastValuable());
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        System.out.println("Total value of Pam's portfolio: " + formatter.format(pamPortfolio.getValue()));
     }
 
 }

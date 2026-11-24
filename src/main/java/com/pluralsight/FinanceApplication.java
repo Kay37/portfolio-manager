@@ -3,7 +3,6 @@ package com.pluralsight;
 
 import com.pluralsight.finance.*;
 
-import javax.swing.text.NumberFormatter;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 
@@ -33,9 +32,9 @@ public class FinanceApplication {
 
         BankAccount account2 = new BankAccount(789, "Pam", new BigDecimal("15000"));
         CreditCard ccAccount1 = new CreditCard(1234, "Pam", new BigDecimal("2000"));
-        Gold goldBar = new Gold("Gold Bar", 1421158.00);
-        House house = new House("2 story, 3 bed, 2 bath", 300000.00);
-        Jewelry necklace = new Jewelry("Necklace", 1000.00);
+        Gold goldBar = new Gold("Gold Bar", 1421158.00, 27.4);
+        House house = new House("2 story, 3 bed, 2 bath", 300000.00, 1999, 2000, 3);
+        Jewelry necklace = new Jewelry("Necklace", 1000.00, 14);
         Portfolio pamPortfolio = new Portfolio("Pam's Portfolio", "Pam");
         pamPortfolio.add(account1);
         pamPortfolio.add(account2);

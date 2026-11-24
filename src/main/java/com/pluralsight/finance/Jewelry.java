@@ -8,7 +8,7 @@ public class Jewelry extends FixedAsset{
     private double karat;
 
     //! Allowing Jewelry instances to be constructed w/ a constructor (uses FixedAsset parent constructor (super))
-    public Jewelry(String name, double marketValue) {
+    public Jewelry(String name, double marketValue, double karat) {
         super(name, marketValue);
         this.karat = karat;
     }

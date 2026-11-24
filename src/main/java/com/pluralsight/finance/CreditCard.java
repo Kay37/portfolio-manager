@@ -1,6 +1,7 @@
 package com.pluralsight.finance;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 //! CreditCard implements the remote control that is Valuable (Valuable's methods)
 public class CreditCard implements Valuable {
@@ -15,10 +16,16 @@ public class CreditCard implements Valuable {
         this.balance = balance;
     }
 
+    @Override
+    public String toString() {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        return accountNumber + " (" + formatter.format(getValue()) + ")";
+    }
+
     //! CreditCard has its own method to determine the value of a credit card.
     @Override
     public double getValue() {
-        return balance.doubleValue();
+        return -balance.doubleValue();
     }
 
     //! BigDecimal pay method - take an amount to pay off of
@@ -31,13 +38,8 @@ public class CreditCard implements Valuable {
     //! BigDecimal charge method - take a charge amount and add it to the amount you owe (balance) (if possible) and then
     //! return the new balance
     public BigDecimal charge(double amount) {
-        if (balance.compareTo(BigDecimal.valueOf(amount)) >= 0) {
-            balance = balance.add(BigDecimal.valueOf(amount));
-            return balance;
-        } else {
-            System.out.println("An error occurred with your charge request. Current balance: \n" + balance);
-            return balance;
-        }
+        balance = balance.add(BigDecimal.valueOf(amount));
+        return balance;
     }
-
 }
+
